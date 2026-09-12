@@ -1,2 +1,43 @@
-# chrono-debug
-Deterministic Python time-travel debugger (rr for Python) built with sys.settrace, frame snapshotting, Rich CLI, and Tkinter GUI. [Track C: C-01]
+# ChronoDebug — Python Time-Travel Debugger (`[C-01] CODE TIME MACHINE`)[cite: 1, 2]
+
+ChronoDebug is a deterministic reverse-debugging tool for Python inspired by tools like `rr`[cite: 1, 2]. It records scope execution frame-by-frame at every line, allowing developers to step backward and forward in time to inspect past variable states without re-running execution[cite: 1, 2].
+
+---
+
+## 🏗️ Architecture Diagram[cite: 2]
+
+```text
++-------------------------------------------------------------------------+
+|                          Target Python Script                           |
++-------------------------------------------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                  1. Runtime Interception (sys.settrace)                 |
+|            Hooks line events dynamically during script execution         |
++-------------------------------------------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                    2. Scope Capture & Merging Engine                    |
+|                Merges local & module scopes: {**globals, **locals}      |
++-------------------------------------------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                   3. Object Safety & State Serialization                |
+|           Performs copy.deepcopy(); falls back safely to repr()          |
++-------------------------------------------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                     4. Timeline Replay Buffer                           |
+|           Stores array of immutable frame snapshots sequentially        |
++-------------------------------------------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                     5. Synchronized UI Rendering                        |
+|        - Rich CLI Terminal Interface                                    |
+|        - Native Tkinter Desktop Application                             |
++-------------------------------------------------------------------------+
