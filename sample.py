@@ -11,4 +11,4 @@ for i in range(3):
     w+=i
 
 x = 999
-print("dengey")
+print("DONE")
