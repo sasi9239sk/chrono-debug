@@ -1,10 +1,10 @@
 # ChronoDebug — Python Time-Travel Debugger (`[C-01] CODE TIME MACHINE`)[cite: 1, 2]
 
-ChronoDebug is a deterministic reverse-debugging tool for Python inspired by tools like `rr`[cite: 1, 2]. It records scope execution frame-by-frame at every line, allowing developers to step backward and forward in time to inspect past variable states without re-running execution[cite: 1, 2].
+ChronoDebug is a deterministic reverse-debugging tool for Python inspired by tools like `rr`[cite: 1, 2]. It records scope execution frame-by-frame at every line, allowing developers to step backward and forward in time to inspect past variable states without re-running execution.
 
 ---
 
-## 🏗️ Architecture Diagram[cite: 2]
+## 🏗️ Architecture Diagram
 
 ```text
 +-------------------------------------------------------------------------+
